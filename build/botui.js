@@ -273,7 +273,7 @@
                 }
             }
             _msg.clickcallback = function() {
-                _instance.clickcallback(_msg.content)
+                _instance.clickcallback(_msg.index + 1, _msg.content)
             }
             _msg.visible = (_msg.delay || _msg.loading) ? false : true;
             var _index = index
@@ -363,7 +363,7 @@
                     .then(function(_index) {
                         _updateMsgIndex()
                         var _msg_ref = document.getElementById("msgbox" + _index)
-                        _msg_ref.focus()
+                        _msg_ref.scrollIntoView(true)
                         return _index
                     })
             },
