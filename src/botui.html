@@ -1,6 +1,6 @@
 <div class="botui botui-container" v-botui-container>
     <div class="botui-messages-container" :key="updatevar">
-        <div v-for="msg in messages" class="botui-message" :class="msg.cssClass" v-botui-scroll :id="'msgbox' + msg.index">
+        <div v-for="msg in messages" class="botui-message" :class="msg.cssClass" :id="'msgbox' + msg.index">
             <transition name="slide-fade">
                 <div v-if="msg.visible">
                     <div v-if="msg.photo && !msg.loading" :class="['profil', 'profile', {human: msg.human, 'agent': !msg.human}]">

@@ -253,6 +253,9 @@
                 return false
             }
             _msg.toggle = function() {
+                if (_instance.clickable) {
+                    return
+                }
                 if (_msg.button_msg === "Correct") {
                     _msg.button_msg = "Incorrect"
                 } else {
@@ -308,16 +311,29 @@
 
         _interface.message = {
             add: function(addOpts) {
-                return _addMessage(_checkOpts(addOpts), -1);
+                return _addMessage(_checkOpts(addOpts), -1)
+                    .then(function(_index) {
+                        var _msg_ref = document.getElementById("msgbox" + _index)
+                        _msg_ref.scrollIntoView(false)
+                        return _index
+                    });
             },
             bot: function(addOpts) {
                 addOpts = _checkOpts(addOpts);
-                return _addMessage(addOpts, -1);
+                return _addMessage(addOpts, -1).then(function(_index) {
+                    var _msg_ref = document.getElementById("msgbox" + _index)
+                    _msg_ref.scrollIntoView(false)
+                    return _index
+                });;
             },
             human: function(addOpts) {
                 addOpts = _checkOpts(addOpts);
                 addOpts.human = true;
-                return _addMessage(addOpts, -1);
+                return _addMessage(addOpts, -1).then(function(_index) {
+                    var _msg_ref = document.getElementById("msgbox" + _index)
+                    _msg_ref.scrollIntoView(false)
+                    return _index
+                });;
             },
             get: function(index) {
                 return Promise.resolve(_instance.messages[index]);
@@ -354,7 +370,7 @@
                     .then(function(_index) {
                         _updateMsgIndex()
                         var _msg_ref = document.getElementById("msgbox" + _index)
-                        _msg_ref.scrollIntoView(true)
+                        _msg_ref.scrollIntoView(false)
                         return _index
                     })
             },
