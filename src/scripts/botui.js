@@ -259,7 +259,9 @@
                     _msg.button_msg = "Correct"
                 }
                 _msg.updatevar += 1
-                console.log(_interface.message.getMessageLengthCorrectPair())
+                if (_msg.toggle_callback) {
+                    _msg.toggle_callback(_interface.message.getMessageLengthCorrectPair())
+                }
             }
             _msg.clickcallback = function() {
                 _instance.clickcallback(_msg.content)
