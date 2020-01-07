@@ -54,6 +54,9 @@ $primary-color: #113b7a;
     }
     &.incorrect {
         background-color: #fba4a4;
+        &.clickable:hover {
+            box-shadow: 0 0 0 3px rgba(130, 4, 4, 0.5) inset;
+        }
     }
     &.text {
         line-height: 1.3;
