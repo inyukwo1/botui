@@ -323,7 +323,7 @@
                 return _addMessage(_checkOpts(addOpts), -1)
                     .then(function(_index) {
                         var _msg_ref = document.getElementById("msgbox" + _index)
-                            // _msg_ref.scrollIntoView(false)
+                        setTimeout(function() { _msg_ref.scrollIntoView({ behavior: 'smooth', block: 'end' }) }, 50) // HACK!!
                         return _index
                     });
             },
@@ -331,7 +331,7 @@
                 addOpts = _checkOpts(addOpts);
                 return _addMessage(addOpts, -1).then(function(_index) {
                     var _msg_ref = document.getElementById("msgbox" + _index)
-                        // _msg_ref.scrollIntoView(false)
+                    setTimeout(function() { _msg_ref.scrollIntoView({ behavior: 'smooth', block: 'end' }) }, 50) // HACK!!
                     return _index
                 });;
             },
@@ -340,7 +340,7 @@
                 addOpts.human = true;
                 return _addMessage(addOpts, -1).then(function(_index) {
                     var _msg_ref = document.getElementById("msgbox" + _index)
-                        // _msg_ref.scrollIntoView(false)
+                    setTimeout(function() { _msg_ref.scrollIntoView({ behavior: 'smooth', block: 'end' }) }, 50) // HACK!!
                     return _index
                 });;
             },
@@ -378,8 +378,8 @@
                 return _addMessage(_checkOpts(addOpts), index)
                     .then(function(_index) {
                         _updateMsgIndex()
-                            // var _msg_ref = document.getElementById("msgbox" + _index)
-                        _msg_ref.scrollIntoView(false)
+                        var _msg_ref = document.getElementById("msgbox" + _index)
+                        setTimeout(function() { _msg_ref.scrollIntoView({ behavior: 'smooth', block: 'end' }) }, 50) // HACK!!
                         return _index
                     })
             },
