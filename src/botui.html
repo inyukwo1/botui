@@ -2,22 +2,24 @@
     <div class="botui-messages-container" :key="updatevar">
         <div v-for="msg in messages" class="botui-message" :class="msg.cssClass" :id="'msgbox' + msg.index">
             <transition name="slide-fade">
-                <div v-if="msg.visible">
+                <div v-if="msg.visible" :style="[msg.human ? {}: {'display': 'flex'}]">
                     <div v-if="msg.photo && !msg.loading" :class="['profil', 'profile', {human: msg.human, 'agent': !msg.human}]">
                         <img :src="msg.photo" :class="[{human: msg.human, 'agent': !msg.human}]">
                     </div>
                     <div :class="[{human: msg.human, incorrect: !msg.is_correct(), clickable: clickable, 'botui-message-content': true}, msg.type]" :key="msg.updatevar" v-if="!msg.is_correct() && clickable" v-on:click="msg.clickcallback">
                         <span v-if="msg.type == 'text'" v-text="msg.content" v-botui-markdown></span>
-                        <button :class="['botui-message-button', {'botui-message-button-incorrect': !msg.is_correct()}]" v-if="msg.add_button" v-text="msg.button_msg" v-on:click="msg.toggle"></button>
                         <span v-if="msg.type == 'html'" v-html="msg.content"></span>
                         <iframe v-if="msg.type == 'embed'" :src="msg.content" frameborder="0" allowfullscreen></iframe>
                     </div>
                     <div :class="[{human: msg.human, incorrect: !msg.is_correct(), clickable: clickable, 'botui-message-content': true}, msg.type]" :key="msg.updatevar" v-if="!(!msg.is_correct() && clickable)">
                         <span v-if="msg.type == 'text'" v-text="msg.content" v-botui-markdown></span>
-                        <button :class="['botui-message-button', {'botui-message-button-incorrect': !msg.is_correct()}]" v-if="msg.add_button" v-text="msg.button_msg" v-on:click="msg.toggle"></button>
                         <span v-if="msg.type == 'html'" v-html="msg.content"></span>
                         <iframe v-if="msg.type == 'embed'" :src="msg.content" frameborder="0" allowfullscreen></iframe>
                     </div>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span :class="['botui-message-button']" v-if="msg.add_button" v-text="msg.button_msg" v-on:click="msg.toggle"></span>
+                    </label>
                 </div>
             </transition>
             <div v-if="msg.photo && msg.loading && !msg.human" :class="['profil', 'profile', {human: msg.human, 'agent': !msg.human}]">

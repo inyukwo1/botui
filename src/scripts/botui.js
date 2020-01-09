@@ -263,7 +263,7 @@
                 }
                 _msg.updatevar += 1
                 if (_msg.toggle_callback) {
-                    _msg.toggle_callback(_interface.message.getMessageLengthCorrectPair())
+                    _msg.toggle_callback(_interface.message.getMesseployageLengthCorrectPair())
                 }
             }
             _msg.clickcallback = function() {

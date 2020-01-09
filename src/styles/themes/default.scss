@@ -25,16 +25,58 @@ $primary-color: #113b7a;
     min-height: 30px;
 }
 
+input[type="checkbox"] {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+}
+
+.switch {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
 .botui-message-button {
-    padding: 7px 13px;
-    border-radius: 15px;
+    position: relative;
+    display: flex;
+    padding: .5vmin 1vmin 0.5vmin 1.5vmin;
+    border-radius: 1vmin;
     border-color: #000000;
     background-color: #1c52a3;
     color: #fff;
+    width: 10vmin;
+    vertical-align: bottom;
+    text-align: left;
     font-size: calc(2.0vmin);
-    min-height: 30px;
-    vertical-align: middle;
-    margin-bottom: 5px;
+    -webkit-transition: .4s;
+    transition: .4s;
+    height: 2vmin;
+    cursor: pointer
+}
+
+.botui-message-button:before {
+    position: absolute;
+    content: "";
+    height: calc(2.4vmin);
+    width: calc(2.4vmin);
+    border-radius: 0.8vmin;
+    background-color: #fff;
+    right: 0.3vmin;
+    bottom: 0.3vmin;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.botui-message-button {
+    background-color: #a31c1c;
+    flex-direction: row-reverse;
+}
+
+input:checked+.botui-message-button:before {
+    -webkit-transform: translateX(-9.5vmin);
+    -ms-transform: translateX(-9.5vmin);
+    transform: translateX(-9.5vmin);
 }
 
 .botui-message-button-incorrect {
@@ -70,6 +112,8 @@ $primary-color: #113b7a;
         padding: 5px;
         border-radius: 5px;
     }
+    -webkit-transition: .4s;
+    transition: .4s;
 }
 
 .botui-message-content-link {
