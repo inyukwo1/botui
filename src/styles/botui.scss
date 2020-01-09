@@ -35,7 +35,7 @@
 
 .botui-message-content {
     width: auto;
-    max-width: 75%;
+    max-width: 70vw;
     display: inline-block;
     &.human {
         float: right;
@@ -48,8 +48,8 @@
 .botui-message-content-image {
     margin: 5px 0;
     display: block;
-    max-width: 50vw;
-    max-height: 40vh;
+    max-width: 70vw;
+    max-height: 60vh;
 }
 
 .botui-message-content-link {
