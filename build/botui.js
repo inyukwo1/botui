@@ -272,11 +272,11 @@
                 }
                 _msg.updatevar += 1
                 if (_msg.toggle_callback) {
-                    _msg.toggle_callback(_interface.message.getMesseployageLengthCorrectPair())
+                    _msg.toggle_callback(_interface.message.getMessageLengthCorrectPair())
                 }
             }
             _msg.clickcallback = function() {
-                _before_msg = _instance.messages[_msg.index - 1]
+                var _before_msg = _instance.messages[_msg.index - 1]
                 _instance.clickcallback(_msg.index + 1, _msg.content, _before_msg.content)
             }
             _msg.visible = (_msg.delay || _msg.loading) ? false : true;
