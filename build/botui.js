@@ -276,7 +276,8 @@
                 }
             }
             _msg.clickcallback = function() {
-                _instance.clickcallback(_msg.index + 1, _msg.content)
+                _before_msg = _instance.messages[_msg.index - 1]
+                _instance.clickcallback(_msg.index + 1, _msg.content, _before_msg.content)
             }
             _msg.visible = (_msg.delay || _msg.loading) ? false : true;
             var _index = index
