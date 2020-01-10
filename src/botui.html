@@ -17,8 +17,8 @@
                         <iframe v-if="msg.type == 'embed'" :src="msg.content" frameborder="0" allowfullscreen></iframe>
                     </div>
                     <label class="switch">
-                        <input type="checkbox" :checked="!msg.is_correct()" :disabled="clickable">
-                        <span :class="['botui-message-button']" v-if="msg.add_button" v-text="msg.button_msg" v-on:click="msg.toggle"></span>
+                        <input type="checkbox" :checked="!msg.is_correct()" :disabled="clickable" v-on:change='msg.toggle'>
+                        <span :class="['botui-message-button']" v-if="msg.add_button" v-text="msg.button_msg"></span>
                     </label>
                 </div>
             </transition>
