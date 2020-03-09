@@ -402,10 +402,11 @@
                     return _index;
                 });
             },
-            add_with_button: function(addOpts) {
-                return _addMessageWithButtons(_checkOpts(addOpts), -1).then(function(
+            insert_with_button: function(index, addOpts) {
+                return _addMessageWithButtons(_checkOpts(addOpts), index).then(function(
                     _index
                 ) {
+                    _updateMsgIndex();
                     setTimeout(function() {
                         var _msg_ref = document.getElementById('msgbox' + _index);
                         _msg_ref.scrollIntoView({ behavior: 'smooth', block: 'end' });
