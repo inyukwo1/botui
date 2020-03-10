@@ -33,7 +33,7 @@
                         <table>
                             <thead>
                                 <tr v-for="header in msg.headers">
-                                    <th :rowspan="msg.category_num"></th>
+                                    <th :colspan="msg.category_num"></th>
                                     <th v-for="header_item in header" :colspan="header_item.colspan">
                                         {{header_item.name}}
                                     </th>
