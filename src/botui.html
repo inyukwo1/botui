@@ -6,12 +6,12 @@
                     <div v-if="msg.photo && !msg.loading" :class="['profil', 'profile', {human: msg.human, 'agent': !msg.human}]">
                         <img :src="msg.photo" :class="[{human: msg.human, 'agent': !msg.human}]" />
                     </div>
-                    <div :class="[{human: msg.human, incorrect: !msg.is_correct(), clickable: clickable, 'botui-message-content': true}, msg.type]" :key="msg.updatevar" v-if="!msg.with_buttons && !msg.is_correct() && clickable" v-on:click="msg.clickcallback">
+                    <div :class="[{human: msg.human, incorrect: !msg.is_correct(), clickable: clickable, 'botui-message-content': true}, msg.type]" :key="msg.updatevar" v-if="!msg.with_checkbox_table && !msg.with_buttons && !msg.is_correct() && clickable" v-on:click="msg.clickcallback">
                         <span v-if="msg.type == 'text'" v-text="msg.content" v-botui-markdown></span>
                         <span v-if="msg.type == 'html'" v-html="msg.content"></span>
                         <iframe v-if="msg.type == 'embed'" :src="msg.content" frameborder="0" allowfullscreen></iframe>
                     </div>
-                    <div :class="[{human: msg.human, incorrect: !msg.is_correct(), clickable: clickable, 'botui-message-content': true}, msg.type]" :key="msg.updatevar" v-if="!msg.with_buttons && !(!msg.is_correct() && clickable)">
+                    <div :class="[{human: msg.human, incorrect: !msg.is_correct(), clickable: clickable, 'botui-message-content': true}, msg.type]" :key="msg.updatevar" v-if="!msg.with_checkbox_table && !msg.with_buttons && !(!msg.is_correct() && clickable)">
                         <span v-if="msg.type == 'text'" v-text="msg.content" v-botui-markdown></span>
                         <span v-if="msg.type == 'html'" v-html="msg.content"></span>
                         <iframe v-if="msg.type == 'embed'" :src="msg.content" frameborder="0" allowfullscreen></iframe>
@@ -26,8 +26,35 @@
                             </div>
                         </div>
                     </div>
+                    <div :class="[{human: msg.human, clickable: clickable, 'botui-message-content': true}, msg.type]" :key="msg.updatevar" v-if="msg.with_checkbox_table">
+                        <span v-if="msg.type == 'text'" v-text="msg.content" v-botui-markdown></span>
+                        <span v-if="msg.type == 'html'" v-html="msg.content"></span>
+                        <iframe v-if="msg.type == 'embed'" :src="msg.content" frameborder="0" allowfullscreen></iframe>
+                        <table>
+                            <thead>
+                                <tr v-for="header in msg.headers">
+                                    <th :rowspan="msg.category_num"></th>
+                                    <th v-for="header_item in header" :colspan="header_item.colspan">
+                                        {{header_item.name}}
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="row in msg.rows">
+                                    <th v-for="category in row.category" :rowspan="category.rowspan">
+                                        {{category.name}}
+                                    </th>
+                                    <td v-for="row_num in row.row_num">
+                                        <input type="checkbox" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
                     <label class="switch">
             <input
+              class="botui-checkbox"
               type="checkbox"
               :checked="!msg.is_correct()"
               :disabled="clickable"

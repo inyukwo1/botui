@@ -356,6 +356,24 @@
             });
         }
 
+        function _addMessageWithCheckboxTable(_msg, index) {
+            const _index = _messageSetup(_msg, index);
+            _msg.with_checkbox_table = true;
+
+            return new Promise(function(resolve, reject) {
+                setTimeout(function() {
+                    if (_msg.delay) {
+                        _msg.visible = true;
+
+                        if (_msg.loading) {
+                            _msg.loading = false;
+                        }
+                    }
+                    resolve(_index);
+                }, _msg.delay || 0);
+            });
+        }
+
         function _updateMsgIndex() {
             for (var i = 0; i < _instance.messages.length; i++) {
                 var _msg = _instance.messages[i];
@@ -404,6 +422,18 @@
                     }, 100); // HACK!!
                     return _index;
                 });
+            },
+            insert_with_checkbox_table: function(index, addOpts) {
+                return _addMessageWithCheckboxTable(_checkOpts(addOpts), index).then(
+                    function(_index) {
+                        _updateMsgIndex();
+                        setTimeout(function() {
+                            var _msg_ref = document.getElementById('msgbox' + _index);
+                            _msg_ref.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                        }, 100); // HACK!!
+                        return _index;
+                    }
+                );
             },
 
             human: function(addOpts) {

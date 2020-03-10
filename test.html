@@ -61,6 +61,70 @@
                             })
                         )
                         .then(
+                            botui.message.insert_with_checkbox_table(-1, {
+                                delay: 1000,
+                                photo: true,
+                                photo: 'https://moin.im/face.svg',
+                                content: 'bot with checkbox table',
+                                headers: [
+                                    [{
+                                        name: 'gold',
+                                        colspan: 1,
+                                    }, {
+                                        name: 'pred',
+                                        colspan: 1,
+                                    }, ],
+                                ],
+                                category_num: 2,
+                                rows: [{
+                                    category: [{
+                                        name: 'input',
+                                        rowspan: 2,
+                                    }, {
+                                        name: 'words in the sentence',
+                                        rowspan: 1,
+                                    }, ],
+                                    row_num: 2,
+                                }, {
+                                    category: [{
+                                        name: 'schema',
+                                        rowspan: 1,
+                                    }, ],
+                                    row_num: 2,
+                                }, {
+                                    category: [{
+                                        name: 'encoder',
+                                        rowspan: 2,
+                                    }, {
+                                        name: 'Transformer encoder',
+                                        rowspan: 1,
+                                    }, ],
+                                    row_num: 2,
+                                }, {
+                                    category: [{
+                                        name: 'LSTM encoder',
+                                        rowspan: 1,
+                                    }, ],
+                                    row_num: 2,
+                                }, {
+                                    category: [{
+                                        name: 'decoder',
+                                        rowspan: 2,
+                                    }, {
+                                        name: 'Transformer decoder',
+                                        rowspan: 1,
+                                    }, ],
+                                    row_num: 2,
+                                }, {
+                                    category: [{
+                                        name: 'LSTM decoder',
+                                        rowspan: 1,
+                                    }, ],
+                                    row_num: 2,
+                                }, ],
+                            })
+                        )
+                        .then(
                             botui.message.insert(1, {
                                 delay: 1000,
                                 human: true,
