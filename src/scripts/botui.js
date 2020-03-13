@@ -9,7 +9,6 @@
     }
 })(typeof window !== 'undefined' ? window : this, function(root, undefined) {
     'use strict';
-
     var BotUI = function(id, opts) {
         opts = opts || {};
 
@@ -318,7 +317,7 @@
                 _instance.messages.splice(index, 0, _msg);
             }
             _msg.index = _index;
-            return index;
+            return _index;
         }
 
         function _addMessage(_msg, index) {
@@ -412,9 +411,10 @@
                 });
             },
             insert_with_button: function(index, addOpts) {
-                return _addMessageWithButtons(_checkOpts(addOpts), index).then(function(
-                    _index
-                ) {
+                return _addMessageWithButtons(
+                    _checkOpts(addOpts),
+                    index
+                ).then(function(_index) {
                     _updateMsgIndex();
                     setTimeout(function() {
                         var _msg_ref = document.getElementById('msgbox' + _index);
@@ -424,16 +424,17 @@
                 });
             },
             insert_with_checkbox_table: function(index, addOpts) {
-                return _addMessageWithCheckboxTable(_checkOpts(addOpts), index).then(
-                    function(_index) {
-                        _updateMsgIndex();
-                        setTimeout(function() {
-                            var _msg_ref = document.getElementById('msgbox' + _index);
-                            _msg_ref.scrollIntoView({ behavior: 'smooth', block: 'end' });
-                        }, 100); // HACK!!
-                        return _index;
-                    }
-                );
+                return _addMessageWithCheckboxTable(
+                    _checkOpts(addOpts),
+                    index
+                ).then(function(_index) {
+                    _updateMsgIndex();
+                    setTimeout(function() {
+                        var _msg_ref = document.getElementById('msgbox' + _index);
+                        _msg_ref.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                    }, 100); // HACK!!
+                    return _index;
+                });
             },
 
             human: function(addOpts) {
@@ -478,7 +479,9 @@
                 });
             },
             insert: function(index, addOpts) {
-                return _addMessage(_checkOpts(addOpts), index).then(function(_index) {
+                return _addMessage(_checkOpts(addOpts), index).then(function(
+                    _index
+                ) {
                     _updateMsgIndex();
                     setTimeout(function() {
                         var _msg_ref = document.getElementById('msgbox' + _index);
@@ -560,8 +563,8 @@
                 _opts.type = 'select';
                 _opts.action.label = _opts.action.label || 'text';
                 _opts.action.value = _opts.action.value || '';
-                _opts.action.searchselect =
-                    typeof _opts.action.searchselect !== 'undefined' ?
+                _opts.action.searchselect = typeof _opts.action.searchselect !==
+                    'undefined' ?
                     _opts.action.searchselect :
                     _options.searchselect;
                 _opts.action.multipleselect = _opts.action.multipleselect || false;
