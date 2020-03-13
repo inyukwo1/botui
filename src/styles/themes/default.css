@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+.botui-container {
+    font-size: calc(2.5vmin);
+    background-color: #e3edfc;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.botui-messages-container {
+    padding: 10px 20px;
+}
+
+.botui-actions-container {
+    padding: 10px 20px;
+}
+
+.botui-message {
+    min-height: 30px;
+}
+
+.botui-checkbox {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+}
+
+.button-container {
+    display: flex;
+}
+
+button {
+    font-size: calc(2vmin);
+    margin: 10px;
+}
+
+table,
+tr,
+th,
+td {
+    border: 1px solid #333333;
+    border-collapse: collapse;
+}
+
+.switch {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-bottom: 0;
+}
+
+.botui-message-button {
+    position: relative;
+    display: flex;
+    padding: 0.5vmin 1vmin 0.5vmin 1.5vmin;
+    border-radius: 1vmin;
+    border-color: #000000;
+    background-color: #1c52a3;
+    color: #fff;
+    width: 12.5vmin;
+    vertical-align: bottom;
+    text-align: left;
+    font-size: calc(2vmin);
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    height: 3vmin;
+    cursor: pointer;
+}
+
+.botui-message-button:before {
+    position: absolute;
+    content: '';
+    height: calc(2.4vmin);
+    width: calc(2.4vmin);
+    border-radius: 0.8vmin;
+    background-color: #fff;
+    right: 0.3vmin;
+    bottom: 0.3vmin;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+input:checked+.botui-message-button {
+    background-color: #a31c1c;
+    flex-direction: row-reverse;
+}
+
+input:checked+.botui-message-button:before {
+    -webkit-transform: translateX(-9.5vmin);
+    -ms-transform: translateX(-9.5vmin);
+    transform: translateX(-9.5vmin);
+}
+
+.botui-message-button-incorrect {
+    background-color: #a31c1c;
+    color: #fff;
+}
+
+.botui-message-content {
+    padding: 7px 13px;
+    border-radius: 15px;
+    color: #113b7a;
+    background-color: #fff;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.botui-message-content.human {
+    color: #f7f8f8;
+    background-color: #1c52a3;
+}
+
+.botui-message-content.incorrect {
+    background-color: #fba4a4;
+}
+
+.botui-message-content.incorrect.clickable:hover {
+    box-shadow: 0 0 0 3px rgba(130, 4, 4, 0.5) inset;
+}
+
+.botui-message-content.text {
+    line-height: 1.3;
+}
+
+.botui-message-content.loading {
+    background-color: rgba(206, 206, 206, 0.5);
+    line-height: 1.3;
+    text-align: center;
+}
+
+.botui-message-content.embed {
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.botui-message-content-link {
+    color: #113b7a;
+}
+
+.botui-actions-text-input {
+    border: 0;
+    outline: none;
+    border-radius: 0;
+    padding: 5px 7px;
+    font-family: 'Open Sans', sans-serif;
+    background-color: transparent;
+    color: #113b7a;
+    border-bottom: 1px solid #1c52a3;
+}
+
+.botui-actions-text-submit {
+    color: #fff;
+    width: 30px;
+    padding: 5px;
+    height: 30px;
+    line-height: 1;
+    border-radius: 50%;
+    border: 1px solid #1c52a3;
+    background: #777979;
+}
+
+.botui-actions-buttons-button {
+    border: 0;
+    color: #fff;
+    line-height: 1;
+    cursor: pointer;
+    font-size: calc(2.5vmin);
+    font-weight: 500;
+    padding: 7px 15px;
+    border-radius: 4px;
+    font-family: 'Open Sans', sans-serif;
+    background: #777979;
+    box-shadow: 2px 3px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.botui-actions-text-select {
+    border: 0;
+    outline: 0;
+    border-radius: 0;
+    padding: 5px 7px;
+    font-family: 'Open Sans', sans-serif;
+    background-color: transparent;
+    color: #113b7a;
+    border-bottom: 1px solid #1c52a3;
+}
+
+.botui-actions-text-searchselect {
+    border: 0;
+    outline: 0;
+    border-radius: 0;
+    padding: 5px 7px;
+    font-family: 'Open Sans', sans-serif;
+    background-color: transparent;
+    color: #113b7a;
+    border-bottom: 1px solid #1c52a3;
+}
+
+.botui-actions-text-searchselect .dropdown-toggle {
+    border: none !important;
+}
+
+.botui-actions-text-searchselect .selected-tag {
+    background-color: transparent !important;
+    border: 0 !important;
+}
+
+.slide-fade-enter-active {
+    transition: all 0.3s ease;
+}
+
+.slide-fade-enter,
+.slide-fade-leave-to {
+    opacity: 0;
+    transform: translateX(-10px);
+}
+
+.dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 0.5rem;
+    display: inline-block;
+    background-color: #113b7a;
+}
+
+.dot:nth-last-child(1) {
+    margin-left: 0.3rem;
+    animation: loading 0.6s 0.3s linear infinite;
+}
+
+.dot:nth-last-child(2) {
+    margin-left: 0.3rem;
+    animation: loading 0.6s 0.2s linear infinite;
+}
+
+.dot:nth-last-child(3) {
+    animation: loading 0.6s 0.1s linear infinite;
+}
+
+@keyframes loading {
+    0% {
+        transform: translate(0, 0);
+        background-color: #ababab;
+    }
+    25% {
+        transform: translate(0, -3px);
+    }
+    50% {
+        transform: translate(0, 0px);
+        background-color: #ababab;
+    }
+    75% {
+        transform: translate(0, 3px);
+    }
+    100% {
+        transform: translate(0, 0px);
+    }
+}
