@@ -431,6 +431,7 @@
                     _updateMsgIndex();
                     setTimeout(function() {
                         var _msg_ref = document.getElementById('msgbox' + _index);
+                        console.log(_index);
                         _msg_ref.scrollIntoView({ behavior: 'smooth', block: 'end' });
                     }, 100); // HACK!!
                     return _index;

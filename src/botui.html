@@ -30,18 +30,18 @@
                         <span v-if="msg.type == 'text'" v-text="msg.content" v-botui-markdown></span>
                         <span v-if="msg.type == 'html'" v-html="msg.content"></span>
                         <iframe v-if="msg.type == 'embed'" :src="msg.content" frameborder="0" allowfullscreen></iframe>
-                        <table>
+                        <table style="font-size: 20px; width: 400px;">
                             <thead>
                                 <tr v-for="header in msg.headers">
-                                    <th :colspan="msg.category_num"></th>
-                                    <th v-for="header_item in header" :colspan="header_item.colspan">
+                                    <th :colspan="msg.category_num" style="background-color: aliceblue;"></th>
+                                    <th v-for="header_item in header" :colspan="header_item.colspan" style="background-color: aliceblue;">
                                         {{header_item.name}}
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr v-for="row in msg.rows">
-                                    <th v-for="category in row.category" :rowspan="category.rowspan">
+                                    <th v-for="category in row.category" :rowspan="category.rowspan" style="background-color: aliceblue;">
                                         {{category.name}}
                                     </th>
                                     <td v-for="row_num in row.row_num">
