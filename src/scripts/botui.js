@@ -341,6 +341,9 @@
         function _addMessageWithButtons(_msg, index) {
             const _index = _messageSetup(_msg, index);
             _msg.with_buttons = true;
+            _msg.callback = function() {
+                _msg.callback(index);
+            };
 
             return new Promise(function(resolve, reject) {
                 setTimeout(function() {
