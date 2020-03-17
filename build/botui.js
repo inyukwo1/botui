@@ -280,6 +280,7 @@
             _msg.type = _msg.type || 'text';
             _msg.button_msg = 'Correct';
             _msg.correct_ref_msg = _msg;
+            _msg.nlq_ref_idx = _msg.nlq_ref_idx || -1;
             if (_msg.correct_ref_idx != 0) {
                 var added_index = index;
                 if (index == -1) {
@@ -311,7 +312,7 @@
                 }
             };
             _msg.clickcallback = function() {
-                var _before_msg = _instance.messages[_msg.index - 1];
+                var _before_msg = _instance.messages[_msg.index + _msg.nlq_ref_idx];
                 _instance.clickcallback(
                     _msg.index + 1,
                     _msg.content,
