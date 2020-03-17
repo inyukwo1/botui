@@ -22,7 +22,7 @@
                         <iframe v-if="msg.type == 'embed'" :src="msg.content" frameborder="0" allowfullscreen></iframe>
                         <div class="button-container">
                             <div v-for="button in msg.buttons">
-                                <button v-text="button.name" v-on:click="button.callback"></button>
+                                <button v-text="button.name" v-on:click="button.onclick"></button>
                             </div>
                         </div>
                     </div>

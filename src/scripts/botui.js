@@ -342,7 +342,7 @@
             const _index = _messageSetup(_msg, index);
             _msg.with_buttons = true;
             _msg.buttons.forEach(function(button) {
-                button.callback = function() {
+                button.onclick = function() {
                     button.callback(index);
                 };
             });
