@@ -341,7 +341,7 @@
         function _addMessageWithButtons(_msg, index) {
             const _index = _messageSetup(_msg, index);
             _msg.with_buttons = true;
-            _msg.buttons.foreach(function(button) {
+            _msg.buttons.forEach(function(button) {
                 button.callback = function() {
                     button.callback(index);
                 };
