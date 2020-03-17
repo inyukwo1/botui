@@ -352,7 +352,7 @@
             _msg.with_buttons = true;
             _msg.buttons.forEach(function(button) {
                 button.onclick = function() {
-                    button.callback(index);
+                    button.callback(_index);
                 };
             });
 
