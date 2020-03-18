@@ -266,6 +266,7 @@
                     'BotUI: "content" is required in a non-loading message object.'
                 );
             }
+            _msg.checkboxes = [];
             _msg.updatevar = 0;
             _msg.correct_ref_idx = _msg.correct_ref_idx || 0;
             _msg.type = _msg.type || 'text';

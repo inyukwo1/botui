@@ -47,7 +47,7 @@
                                         {{category.name}}
                                     </th>
                                     <td v-for="row_num in row.row_num">
-                                        <input type="checkbox" />
+                                        <input type="checkbox" value="row_num" v-model="msg.checkboxes" />
                                     </td>
                                 </tr>
                             </tbody>
