@@ -22,7 +22,7 @@
                         <iframe v-if="msg.type == 'embed'" :src="msg.content" frameborder="0" allowfullscreen></iframe>
                         <div class="button-container">
                             <div v-for="button in msg.buttons">
-                                <span class="checkboxtable-submit-button" v-visibility="button.visible()" v-text="button.name" v-on:click="button.onclick"></span>
+                                <span v-if="button.visible()" class="checkboxtable-submit-button" v-text="button.name" v-on:click="button.onclick"></span>
                             </div>
                         </div>
                     </div>
