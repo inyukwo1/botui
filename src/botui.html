@@ -42,12 +42,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="row in msg.rows">
+                                <tr v-for="(row, col_index) in msg.rows">
                                     <th v-for="category in row.category" :rowspan="category.rowspan" style="background-color: aliceblue;">
                                         {{category.name}}
                                     </th>
                                     <td v-for="row_num in row.row_num">
-                                        <input type="checkbox" :value="row_num" v-model="msg.checkboxes" />
+                                        <input type="checkbox" :value="row_num + col_index * 1000" v-model="msg.checkboxes" />
                                     </td>
                                 </tr>
                             </tbody>
